@@ -4,7 +4,7 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
 	dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
 	username = "root"
-	password = "root"
+	password = "smiling03"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -21,7 +21,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/cmpe272"
 			username = "root"
-			password = "root"
+			password = "smiling03"
         }
     }
     test {
