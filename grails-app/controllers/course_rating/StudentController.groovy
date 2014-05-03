@@ -3,7 +3,7 @@ package course_rating
 class StudentController {
 
     def index() {
-		
+		redirect(uri:'/')
 	}
 	
 	def login = {
@@ -57,8 +57,82 @@ class StudentController {
 		
 	}
 	def software ={
-		
 			[allCourse:Courses.findByCourse_id('software')]
+				}
+	
+	def profile ={
+		def s = Student.findByUsername(session?.student.username);
+		
+		
+		if(s){
 			
+			[student:s]
+			//render(uri:'/profile')
+		
 		}
+					
+	}
+	
+	def addCourses ={
+		
+		def c = Courses.findAll();
+		[Courses:c]
+	}
+	
+	def addCoursesToProfile= {
+		def s = Student.findByUsername(session?.student.username)
+		s.course1 = params.course_id;
+		}
+	
+	
+	def preRecommender = {
+		
+		def s = Student.findByUsername(session?.student.username)
+		
+		def listed = [s.course1,s.course2,s.course3,s.course4,s.course5,s.course6,s.course7,s.course8,s.course9,s.course10]
+		
+		def co = Courses.findAll();
+		
+		listed.eachWithIndex { obj, i ->
+			if (obj==null) listed=listed-obj
+		}
+		println listed
+		println listed.size()
+		[listed:listed,cours:co]			
+	}
+	
+	def recommend = {
+		
+		def x = params
+		// loop and get individual rating and course_id
+		println params.rating
+		println params.course_id
+		println x
+		params.rating.eachWithIndex { obj, i ->
+			println obj
+		}
+		params.course_id.eachWithIndex { obj, i ->
+			println obj
+		}
+		
+		
+		File infile= new File("data/courserate.csv");
+		BufferedReader br2 = new BufferedReader(new FileReader(infile));
+		
+		//////////
+		/*MysqlDataSource dataSource = new MysqlDataSource();
+		dataSource.setServerName("my_database_host");
+		dataSource.setUser("my_user");
+		dataSource.setPassword("my_password");
+		dataSource.setDatabaseName("my_database_name");
+		
+		JDBCDataModel dataModel = new MySQLJDBCDataModel(
+			dataSource, "my_prefs_table", "my_user_column",
+			"my_item_column", "my_pref_value_column", "my_timestamp_column");
+		*/
+		////////
+		
+	}
+	
+	
 }

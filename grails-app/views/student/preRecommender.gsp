@@ -81,10 +81,10 @@
 	<h2 style="font-family:Tangerine; color:#580000; font-size:60px">SJSU Recommendation System</h2></br>
 <!-- Start of Menu -->
 	<ul class="nav nav-tabs" id="myTab">
-	    <li><g:link controller="Student" action="index">Home</g:link></li>
-	    <li class="active"><g:link controller="Course" action="showAll">All Courses</g:link></li>
+	    <li><a href="#" data-toggle="tab">Home</a></li>
+	    <li><g:link controller="Course" action="showAll">All Courses</g:link></li>
 	   <g:if test="${session?.student}">
-					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
+					<li class="active"><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
 					<li><g:link controller="Student" action="logout">Logout</g:link></li>
 					</g:if>
 					<g:else>
@@ -92,6 +92,15 @@
 	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
 				    </g:else>
 	</ul>
+	
+	
+	
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script src="<g:resource dir="js" file="bootstrap-image-gallery.min.js" />"></script>
+  <script src="<g:resource dir="js" file="bootstrap-image-gallery.js" />"></script>
+  <script src="<g:resource dir="js" file="bootstrap.js" />"></script>
+
 	
 	<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
 	<script>
@@ -118,19 +127,36 @@
 
 	</script> 
 
-</div>
 
+</div>
 
 <!-- Main -->
-<g:each in="${allCourse}" var="item">
-<div> 
-	<g:form url="[controller:'course',action:'selected']">
-			   <g:link controller="course" action="selected" id="${item.course_id}" >
-				${item.course_id}:${item.title}
-                 </g:link>
-     </g:form>
+<div>
+						<h2>Select the Id & Ratings of courses you have taken/completed </h2>
+			<g:form controller="Student" action="recommend" >
+			<g:each in="${listed}" var="item">
+						
+				<g:if test="${listed.iterator().hasNext() != null}">
+						
+						<label>course:  </label>
+						<g:select name="course_id" from="${cours.course_id}" value="${listed.iterator().hasNext()}" id="${cours.course_id}" />
+						<g:select id="${cours.course_id}" name="rating" from="${[1,2,3,4,5]}" />
+						<br>
+						
+				</g:if>
+				<g:else>
+						<label>course:  </label>
+						<g:select name="course_id" from="${cours.course_id}" id="${cours.course_id}" />
+						<g:select id="${cours.course_id}" name="rating" from="${[1,2,3,4,5]}" />
+						<br>
+				</g:else>
+			</g:each>
+			<g:submitButton name="submit"/>
+			</g:form>			
 </div>
- </g:each>
+<br>
+
+
 
 
 

@@ -82,9 +82,10 @@
 <!-- Start of Menu -->
 	<ul class="nav nav-tabs" id="myTab">
 	    <li><g:link controller="Student" action="index">Home</g:link></li>
-	    <li class="active"><g:link controller="Course" action="showAll">All Courses</g:link></li>
+	    <li><g:link controller="Course" action="showAll">All Courses</g:link></li>
 	   <g:if test="${session?.student}">
-					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
+					<li class="active"><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
+					<li><g:link controller="Student" action="preRecommender">Course Recommender</g:link></li>
 					<li><g:link controller="Student" action="logout">Logout</g:link></li>
 					</g:if>
 					<g:else>
@@ -92,6 +93,15 @@
 	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
 				    </g:else>
 	</ul>
+	
+	
+	
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+  <script src="<g:resource dir="js" file="bootstrap-image-gallery.min.js" />"></script>
+  <script src="<g:resource dir="js" file="bootstrap-image-gallery.js" />"></script>
+  <script src="<g:resource dir="js" file="bootstrap.js" />"></script>
 	
 	<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
 	<script>
@@ -118,19 +128,38 @@
 
 	</script> 
 
-</div>
+
 
 
 <!-- Main -->
-<g:each in="${allCourse}" var="item">
-<div> 
-	<g:form url="[controller:'course',action:'selected']">
-			   <g:link controller="course" action="selected" id="${item.course_id}" >
-				${item.course_id}:${item.title}
-                 </g:link>
-     </g:form>
-</div>
- </g:each>
+<table border="1">
+								<g:each in="${student}" var="s"> 
+						<tr><th> username</th><td>${s.username}</td></tr>
+	 					<tr><th> email</th><td>${s.email}</td></tr>	
+	 					<tr><th> mobile</th><td>${s.mobile}</td></tr>
+	 					<tr><th> student_id</th><td>${s.student_id}</td></tr>
+	 					<tr><th> course1</th><td>${s.course1}</td></tr>
+	 					<tr><th> course2</th><td>${s.course2}</td></tr>
+	 					<tr><th> course3</th><td>${s.course3}</td></tr>
+	 					<tr><th> course4</th><td>${s.course4}</td></tr>
+	 					<tr><th> course5</th><td>${s.course5}</td></tr>
+	 					<tr><th> course6</th><td>${s.course6}</td></tr>	
+	 					<tr><th> course7</th><td>${s.course7}</td></tr>	
+	 					<tr><th> course8</th><td>${s.course8}</td></tr>
+	 					<tr><th> course9</th><td>${s.course9}</td></tr>	
+	 					<tr><th> course10</th><td>${s.course10}</td></tr>
+	 					<tr><th> course11</th><td>${s.course11}</td></tr>	
+	 					<tr><th> course12</th><td>${s.course12}</td></tr>
+	
+	 
+							
+ 								</g:each>
+							</table>
+						</div>
+<br>
+
+
+
 
 
 
