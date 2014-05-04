@@ -128,6 +128,52 @@
 	    ga('send', 'pageview');
 
 	</script> 
+	
+	
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  
+  <div class="carousel-inner" style="font-weight: bold; font-size: medium; ">
+    <div class="item active">
+      <img src="http://ausindvisa.com/wp-content/files_mf/australiasforeignstudents.jpg" alt="...">
+      <div class="carousel-caption">
+        Welcome to San Jose State University
+      </div>
+    </div>
+    
+     <div class="item">
+      <img src="http://www.mlafgcw.org/images/image6.jpg" alt="...">
+      <div class="carousel-caption" >
+        Welcome to San Jose State University
+      </div>
+    </div>
+    
+     <div class="item">
+      <img src="http://www.iie.org/~/media/Images/Corporate/Carousel/CA-students-005.ashx" width="70%" align="center" alt="...">
+      <div class="carousel-caption">
+        San Jose State University Courses
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+
+
 	  <!-- Footer -->
 
                 <div id="footer-wrapper" style="background-color:black;">

@@ -22,15 +22,21 @@
 
 
 	<style type="text/css">
+	body {
+	background-color: ;
+	}
 	    p{
 		text-align: center;
 	    }
 .caret{
 		border-top: solid white;
 	    }
-	    tr{
+	    tr, h3 , h4{
 	    	font-family: 'Tangerine', serif;
 	    	font-size:  30px;
+	    }
+	    td{
+	    width: 130px;
 	    }
 	</style>
 
@@ -132,12 +138,15 @@
 
 
 <!-- Main -->
-<table border="1">
-								<g:each in="${student}" var="s"> 
-						<tr><th> username</th><td>${s.username}</td></tr>
-	 					<tr><th> email</th><td>${s.email}</td></tr>	
-	 					<tr><th> mobile</th><td>${s.mobile}</td></tr>
-	 					<tr><th> student_id</th><td>${s.student_id}</td></tr>
+<div align="center">
+<g:each in="${student}" var="s"> 
+						 <h3>Username - ${s.username} </h3>
+	 					 <h3>email - ${s.email} </h3>
+	 					 <h3> mobile - ${s.mobile}</h3>
+	 					<h3> student_id - ${s.student_id}</h3>
+                <table border="1">
+								
+	 					
 	 					<tr><th> course1</th><td>${s.course1}</td></tr>
 	 					<tr><th> course2</th><td>${s.course2}</td></tr>
 	 					<tr><th> course3</th><td>${s.course3}</td></tr>
@@ -153,9 +162,11 @@
 	
 	 
 							
- 								</g:each>
+ 								
 							</table>
+							</g:each>
 						</div>
+</div>
 <br>
 
 

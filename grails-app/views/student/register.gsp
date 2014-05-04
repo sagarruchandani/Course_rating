@@ -117,7 +117,10 @@
                     <div id='login' style="background-color:whitesmoke;border-radius:10px;opacity:0.8">
                         <table width='100px'>
                                     <h4><center><i>Sign Up!</i></center></h4>
-                               <hr>
+                             <tr>
+                              <td style="padding-left:10px;"><label >Student ID</label></td>
+                                    <td><g:textField  type="student_id" name="student_id" class="textbox" style="border-radius:5px;border-color:grey"/></td>
+                                                </tr>
                           <tr>
                            <td style="padding-left:10px"><label>User Name</label></td>
                              <td><g:textField type="text" name="username" class="textbox" style="border-radius:5px;border-color:grey"/></td>
