@@ -1,4 +1,15 @@
+
 package course_rating
+
+import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource
+import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel
+import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender
+import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood
+import org.apache.mahout.cf.taste.recommender.RecommendedItem
+import org.apache.mahout.cf.taste.recommender.UserBasedRecommender
+import org.apache.mahout.cf.taste.similarity.UserSimilarity
 
 class StudentController {
 
@@ -116,9 +127,6 @@ class StudentController {
 		}
 		
 		
-		File infile= new File("data/courserate.csv");
-		BufferedReader br2 = new BufferedReader(new FileReader(infile));
-		
 		//////////
 		/*MysqlDataSource dataSource = new MysqlDataSource();
 		dataSource.setServerName("my_database_host");
@@ -131,8 +139,60 @@ class StudentController {
 			"my_item_column", "my_pref_value_column", "my_timestamp_column");
 		*/
 		////////
+		/*DataModel model= new MySQLJDBCDataModel(DataSource dataSource,
+                          String preferenceTable,
+                          String userIDColumn,
+                          String itemIDColumn,
+                          String preferenceColumn,
+                          String timestampColumn)
+		*/
+	/*	MysqlDataSource dataSource = new MysqlDataSource();
+		dataSource.setServerName("my_database_host");
+		dataSource.setUser("my_user");
+		dataSource.setPassword("my_password");
+		dataSource.setDatabaseName("my_database_name");
 		
+		DataModel dataModel = new MySQLJDBCDataModel(
+			dataSource, "my_prefs_table", "my_user_column",
+			"my_item_column", "my_pref_value_column", "my_timestamp_column");
+		*/
+		MysqlConnectionPoolDataSource dataSource2= new MysqlConnectionPoolDataSource();
+		dataSource2.setUser("root");
+		dataSource2.setPassword("root");
+		dataSource2.setServerName("localhost");
+		dataSource2.setPort(3306);
+		dataSource2.setDatabaseName("cmpe272");
+		
+		MySQLJDBCDataModel dataModel2 = new MySQLJDBCDataModel(dataSource2,
+		"ratings", "student_id", "course_id2", "rating");
+		
+	
+	UserSimilarity similarity = new PearsonCorrelationSimilarity(dataModel2);
+	UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, dataModel2);
+	
+	UserBasedRecommender recommender = new GenericUserBasedRecommender(dataModel2, neighborhood, similarity);
+	List<RecommendedItem>recommendations =  recommender.recommend(1, 5);
+	System.out.println("Recommenation for student 1: ");
+	for (RecommendedItem recommendation : recommendations) {
+		System.out.println(recommendation);
+		System.out.println(recommendation.getItemID());
+		System.out.println(recommendation.getValue());
 	}
+	
+	
+	
+	
+	//Connection con = ds.getConnection();
+		
+		//DriverManager.registerDriver((Driver) Class.forName("com.mysql.jdbc.Driver").newInstance());
+//		String url = "jdbc:mysql://[host][,failoverhost...][:port]/[database][?propertyName1][=propertyValue1][&propertyName2][=propertyValue2]"
+	//	Connection c = DriverManager.getConnection(url);
+		
+		//Connection con=null;
+		//con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cmpe272?user=root")
+		
+		//println con
+		}
 	
 	
 }
