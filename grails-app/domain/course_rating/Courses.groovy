@@ -5,6 +5,7 @@ class Courses {
 	String Title
 	String Description
 	String Course_id
+	Integer course
 	String Category
 	String Sub_type
 	static mapping = {
