@@ -3,6 +3,7 @@ package course_rating
 class Ratings {
 
 	String course_id
+	Integer Course_id2
 	Integer student_id
 	Integer rating
 	String comments
