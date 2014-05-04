@@ -8,8 +8,8 @@
 
 	<title>Course Recommendation System</title>
 
-	<!-- Bootstrap core CSS -->
-	<link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+	<link href="<g:resource dir="css" file="bootstrap.css" />"></link>
 
 	<!-- Add custom CSS here -->
 	<link rel="shortcut icon" href="favicon.ico" />
@@ -128,6 +128,31 @@
 	    ga('send', 'pageview');
 
 	</script> 
+	  <!-- Footer -->
+
+                <div id="footer-wrapper" style="background-color:black;">
+				<footer class="container" id="site-footer">
+                                    <div id="out">	
+                                    <div id="social" align="center" style="background-color:black;">
+                                            <h6>Connect With Us</h6>
+                                        <a href='https://www.facebook.com/'><img src="http://www.pondsforpeoplepools.com/wp-content/uploads/2013/04/facebook-like-logo.jpg" height="50px" width="50px"></a>
+                                        <a href='https://twitter.com/'><img src="http://fc05.deviantart.net/fs70/i/2013/098/2/5/high_quality_twitter_logo_by_mikewilson1000-d60yhcw.jpg" height="50px" width="50px" /></a>
+                                        <a href='https://www.linkedin.com/'><img src="http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons/blue-metallic-orbs-icons-social-media-logos/098454-blue-metallic-orb-icon-social-media-logos-linkedin-logo.png" height="50px" width="50px"/></a>
+                                        
+                                    </div>
+                                        </div>
+                                    <br/>
+                                    	<div class="row">
+						<div class="12u">
+                            <div id="copyright" style="color:white;" align="center">
+								Thanks for visiting. All rights reserved.<br/>
+                                                                Copyright   2014-15.
+							</div>
+						</div>
+					</div>
+                                    
+				</footer>
+				</div>
 
     </body>
 </html>
