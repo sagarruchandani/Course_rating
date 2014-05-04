@@ -15,6 +15,9 @@ class CourseController {
 		[select:Courses.findByCourse_id(params.id),ratings:Ratings.findAllByCourse_id(params.id)]
 		}
 	
-	
+	def rate = {
+	    	
+		
+	}
 	
 	}
