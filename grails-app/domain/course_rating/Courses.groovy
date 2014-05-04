@@ -5,7 +5,7 @@ class Courses {
 	String Title
 	String Description
 	String Course_id
-	Integer Course_id2
+	Integer course
 	String Category
 	String Sub_type
 	static mapping = {
