@@ -21,7 +21,7 @@ environments {
             dbCreate = "create"
             url = "jdbc:mysql://localhost:3306/cmpe272"
 			username = "root"
-			password = "root"
+			password = "vallam@176"
         }
     }
     test {
@@ -29,7 +29,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/cmpe272"
 			username = "root"
-			password = "root"
+			password = "vallam@176"
         }
     }
     production {

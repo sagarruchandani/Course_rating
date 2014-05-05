@@ -94,6 +94,7 @@
 					<li><g:link controller="Student" action="preRecommender">Course Recommender</g:link></li>
 					<li><g:link controller="Student" action="logout">Logout</g:link></li>
 					<li><g:link controller="course" action="rate">Rate</g:link></li>
+					<li><g:link controller="Student" action="addCourses">Add courses</g:link></li>
 					</g:if>
 					<g:else>
 	 				 <li><g:link controller="Student" action="login">Login</g:link></li>
