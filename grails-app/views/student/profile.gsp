@@ -19,94 +19,44 @@
 	<link rel="stylesheet" href="<g:resource dir="css" file="bootstrap.min.css" />"></link>
 	<link rel="stylesheet" href="<g:resource dir="css" file="blueimp-gallery.min.css" />"></link>
 	<link rel="stylesheet" href="<g:resource dir="css" file="bootstrap-image-gallery.min.css" />"></link>
+  <link rel=”stylesheet” type=”text/css” href=“https://drive.google.com/a/sjsu.edu/file/d/0B2LW4Rd70NyWR2doOWtEclQydFU/edit” />
 
 
-	<style type="text/css">
-	body {
-	background-color: ;
-	}
-	    p{
-		text-align: center;
-	    }
-.caret{
-		border-top: solid white;
-	    }
-	    tr, h3 , h4{
-	    	font-family: 'Tangerine', serif;
-	    	font-size:  30px;
-	    }
-	    td{
-	    width: 130px;
-	    }
-	</style>
 
     </head>
     <body class="full">
 
+	<div style='float: right;'><a href="index.gsp"> Back to Home</a></div>
+    <div style='float: right;'><a href="login.gsp">Log in |</a></div>
+
 	
-
-	<!-- Side Menu -->
-	<a id="menu-toggle" href="#" class="btn btn-lg btn-primary toggle">Menu</i></a>
-    <div id="menu-close">
-	<div id="sidebar-wrapper">
-	    <ul class="sidebar-nav">
-		<!--<a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>-->
-		<li class="sidebar-brand">SJSU Course Recommender</li>
-		<li><a href="#">Home</a></li>
-		<li><g:link controller="Course" action="showAll">All Courses</g:link></li>
-
-		<div id="accordion">
-		    <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-			My Profile<b class="caret"></b>
-		    </a></li>
-
-		    <div id="collapseOne" class="panel-collapse collapse">
-			<div class="panel-body">
-			    <li><a href="#">Update Profile</a></li>
-			    <li><a href="#">Change Password</a></li>
-			</div>
-		    </div>
-		</div>
-
-					<g:if test="${session?.student}">
-					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
-					<li><g:link controller="Student" action="logout">Logout</g:link></li>
-					</g:if>
-					<g:else>
-	 				 <li><g:link controller="Student" action="login">Login</g:link></li>
-	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
-				    </g:else>
-		</ul>
-	</div>
-    </div>
-    <!-- /Side Menu -->
-
 
     <div class="container">
 	<br/>
-	<h2 style="font-family:Tangerine; color:#580000; font-size:60px">SJSU Recommendation System</h2></br>
+	<h2 style="font-family:Begonia; color:#580000; font-size:60px">CMPE Course Recommendation</h2></br>
 <!-- Start of Menu -->
 	<ul class="nav nav-tabs" id="myTab">
 	    <li><g:link controller="Student" action="index">Home</g:link></li>
 	    <li><g:link controller="Course" action="showAll">All Courses</g:link></li>
+	     <li><g:link controller="Student" action="preRecommender">Rate Course</g:link></li>
+	     <li><g:link controller="Course" action="graph.gsp">Data & Analytics</g:link></li>
+	     <li><g:link controller="Student" action="addCourses">Add courses</g:link></li>
+	     <li><g:link controller="Course" action="e_learn">E-learning</g:link></li>
 	   <g:if test="${session?.student}">
 					<li class="active"><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
-					<li><g:link controller="Student" action="preRecommender">Course Recommender</g:link></li>
+					
 					<li><g:link controller="Student" action="logout">Logout</g:link></li>
 					<li><g:link controller="course" action="rate">Rate</g:link></li>
-					<li><g:link controller="Student" action="addCourses">Add courses</g:link></li>
 					</g:if>
 					<g:else>
 	 				 <li><g:link controller="Student" action="login">Login</g:link></li>
-	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
+	 				
 				    </g:else>
 	</ul>
 	
-	
-	
-	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+		
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
   <script src="<g:resource dir="js" file="bootstrap-image-gallery.min.js" />"></script>
   <script src="<g:resource dir="js" file="bootstrap-image-gallery.js" />"></script>
   <script src="<g:resource dir="js" file="bootstrap.js" />"></script>

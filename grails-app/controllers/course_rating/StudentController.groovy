@@ -10,7 +10,6 @@ import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood
 import org.apache.mahout.cf.taste.recommender.RecommendedItem
 import org.apache.mahout.cf.taste.recommender.UserBasedRecommender
 import org.apache.mahout.cf.taste.similarity.UserSimilarity
-
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource
 import org.apache.mahout.cf.taste.impl.model.jdbc.MySQLJDBCDataModel
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood
@@ -98,6 +97,10 @@ class StudentController {
 		
 		def c = Courses.findAll();
 		[Courses:c]
+		
+		
+		
+		
 	}
 	
 	def addCoursesToProfile= {
@@ -105,9 +108,17 @@ class StudentController {
 		s.course1 = params.course_id;
 		}
 	
-	
-	def preRecommender = {
 		
+	def preRecommender = {
+			
+		
+		
+		
+		if  (session.student != null)
+		{
+		println session.student
+		
+		println "sagar"	
 		def s = Student.findByUsername(session?.student.username)
 		
 		def listed = [s.course1,s.course2,s.course3,s.course4,s.course5,s.course6,s.course7,s.course8,s.course9,s.course10]
@@ -119,7 +130,13 @@ class StudentController {
 		}
 		println listed
 		println listed.size()
-		[listed:listed,cours:co]			
+		[listed:listed,cours:co]
+		}
+		else
+		{
+			flash.message="Please Login or Sign Up to get recommendations!"
+			redirect(uri:"/")
+		}			
 	}
 	
 	def recommend = {

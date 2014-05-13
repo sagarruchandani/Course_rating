@@ -18,10 +18,10 @@ hibernate {
 environments {
     development {
          dataSource {
-            dbCreate = "create"
+            dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/cmpe272"
 			username = "root"
-			password = "vallam@176"
+			password = "root"
         }
     }
     test {
@@ -29,7 +29,7 @@ environments {
             dbCreate = "update"
             url = "jdbc:mysql://localhost:3306/cmpe272"
 			username = "root"
-			password = "vallam@176"
+			password = "root"
         }
     }
     production {

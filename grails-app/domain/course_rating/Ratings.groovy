@@ -6,6 +6,7 @@ class Ratings {
 	Integer course
 	Integer student_id
 	Integer rating
+	String category
 	String comments
 	Date dateCreated
 	static mapping = {
@@ -13,6 +14,7 @@ class Ratings {
 		//id false
 		//id generator:'assigned', column:'Student_id', type:'integer'
 		id name: 'id'
+		sort dateCreated:"asc"
 	}
     static constraints = {
     }

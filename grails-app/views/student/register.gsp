@@ -2,6 +2,68 @@
 
 <html>
 	 <head>
+	 <style>
+	 nav ul ul {
+	display: none;
+	z-index: 1;
+}
+
+	nav ul li:hover > ul {
+		display: block;
+	}
+nav ul {
+	background: #efefef; 
+	background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+	background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+	background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+	box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+	padding: 0 20px;
+	border-radius: 10px;  
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+nav ul li {
+	float: left;
+}
+	nav ul li:hover {
+		background: #4b545f;
+		background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+		background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+		background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+	}
+		nav ul li:hover a {
+			color: #fff;
+		}
+	
+	nav ul li a {
+		display: block; padding: 25px 40px;
+		color: #757575; text-decoration: none;
+	}
+nav ul ul {
+	background: #5f6975; border-radius: 0px; padding: 0;
+	position: absolute; top: 100%;
+}
+	nav ul ul li {
+		float: none; 
+		border-top: 1px solid #6b727c;
+		border-bottom: 1px solid #575f6a;
+		position: relative;
+	}
+		nav ul ul li a {
+			padding: 15px 40px;
+			color: #fff;
+		}	
+			nav ul ul li a:hover {
+				background: #4b545f;
+			}
+nav ul ul ul {
+	position: absolute; left: 100%; top:0;
+}			
+	 </style>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
@@ -20,80 +82,49 @@
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 	<link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">  
-		
-	<style type="text/css">
-	    p{
-		text-align: center;
-	    }
-.caret{
-		border-top: solid white;
-	    }
-	    tr{
-	    	font-family: 'Tangerine', serif;
-	    	font-size:  30px;
-	    }
-	</style>
+	  <link rel=”stylesheet” type=”text/css” href=“https://drive.google.com/a/sjsu.edu/file/d/0B2LW4Rd70NyWR2doOWtEclQydFU/edit” />	
+	
+
 
     </head>
     <body class="full">
+  <div style='float: right;'><a href="index.gsp"> Back to Home</a></div>
 
+<div style='float: right;'><a href="login.gsp">Log in |</a></div>
 	
 
-	<!-- Side Menu -->
-	<a id="menu-toggle" href="#" class="btn btn-lg btn-primary toggle">Menu</i></a>
-    <div id="menu-close">
-	<div id="sidebar-wrapper">
-	    <ul class="sidebar-nav">
-		<!--<a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>-->
-		<li class="sidebar-brand">SJSU Course Recommender</li>
-		<li><a href="#">Home</a></li>
-		<li><g:link controller="Course" action="showAll">All Courses</g:link></li>
-
-		<div id="accordion">
-		    <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-			My Profile<b class="caret"></b>
-		    </a></li>
-
-		    <div id="collapseOne" class="panel-collapse collapse">
-			<div class="panel-body">
-			    <li><a href="#">Update Profile</a></li>
-			    <li><a href="#">Change Password</a></li>
-			</div>
-		    </div>
-		</div>
-
-					<g:if test="${session?.student}">
-					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
-					<li><g:link controller="Student" action="logout">Logout</g:link></li>
-					</g:if>
-					<g:else>
-	 				 <li><g:link controller="Student" action="login">Login</g:link></li>
-	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
-				    </g:else>
-		</ul>
-	</div>
-    </div>
-    <!-- /Side Menu -->
-		
-
+	
   <div class="container" align="center">
 	<br/>
-	<h2 style="font-family:Tangerine; font-weight:bold; color:#580000; font-size:60px">SJSU Recommendation System</h2>
+	<h2 style="font-family:Begonia; color:#580000; font-size:60px">CMPE Course Recommendation</h2></br>
 <!-- Start of Menu -->
-	<ul class="nav nav-tabs" id="myTab"  style="border-left:thick; margin-left: 30%; font-weight: bold; ">
+<nav>	<ul class="nav nav-tabs" id="myTab"  style=" font-weight: bold; ">
 	    <li><g:link controller="Student" action="index">Home</g:link></li>
 	    <li ><g:link controller="Course" action="showAll">All Courses</g:link></li>
+	      <li><g:link controller="Course" action="showAll">All Courses</g:link>
+	            <ul>
+	         <li><a href="#">Department</a>
+	         <ul>
+	             <li><a href="">Computer Engineering</a>
+	             <li><a href="">Software Engineering</a>
+	         </ul>
+	         </li>
+	        
+	       </ul>
+	     <li><g:link controller="Student" action="preRecommender">Course Recommender</g:link></li>
+	     <li><g:link controller="Course" action="graph.gsp">Data & Analytics</g:link></li>
+	     <li><g:link controller="Course" action="e_learn">E-learning</g:link></li>
 	   <g:if test="${session?.student}">
 					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
 					<li><g:link controller="Student" action="logout">Logout</g:link></li>
 					</g:if>
 					<g:else>
 	 				 <li ><g:link controller="Student" action="login">Login</g:link></li>
-	 				 <li class="active"><g:link controller="Student" action="register">Sign up now!</g:link></li>
+	 				
 				    </g:else>
 	</ul>
-	
-	
+</nav>
+</div>	
 	
 	
                                         <marquee><b>Welcome To SJSU Recommendation Portal</b></marquee>

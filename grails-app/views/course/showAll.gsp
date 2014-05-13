@@ -5,8 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
-	<title>Course Recommendation System</title>
+<gvisualization:apiImport/>
+	<title>CMPE 
+	Course Recommendation</title>
 
 	<!-- Bootstrap core CSS -->
 	<link href="<g:resource dir="css" file="bootstrap.css" />"></link>
@@ -42,86 +43,31 @@
     </head>
     <body class="full">
 
-	
+	<div style='float: right;'><a href="index.gsp"> Back to Home</a></div>
 
-	<!-- Side Menu -->
-	<a id="menu-toggle" href="#" class="btn btn-lg btn-primary toggle">Menu</i></a>
-    <div id="menu-close">
-	<div id="sidebar-wrapper">
-	    <ul class="sidebar-nav">
-		<!--<a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>-->
-		<li class="sidebar-brand">SJSU Course Recommender</li>
-		<li><a href="#">Home</a></li>
-		<li><g:link controller="Course" action="showAll">All Courses</g:link></li>
-
-		<div id="accordion">
-		    <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-			My Profile<b class="caret"></b>
-		    </a></li>
-
-		    <div id="collapseOne" class="panel-collapse collapse">
-			<div class="panel-body">
-			    <li><a href="#">Update Profile</a></li>
-			    <li><a href="#">Change Password</a></li>
-			</div>
-		    </div>
-		</div>
-
-					<g:if test="${session?.student}">
-					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
-					<li><g:link controller="Student" action="logout">Logout</g:link></li>
-					</g:if>
-					<g:else>
-	 				 <li><g:link controller="Student" action="login">Login</g:link></li>
-	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
-				    </g:else>
-		</ul>
-	</div>
-    </div>
-    <!-- /Side Menu -->
+<div style='float: right;'><a href="login.gsp">Log in |</a></div>
 
 
-    <div class="container" align="center">
+    <div class="container" align="left">
 	<br/>
-	<h2 style="font-family:Tangerine; font-weight:bold; color:#580000; font-size:60px">SJSU Recommendation System</h2></br>
+	<h2 style="font-family:Begonia; color:#580000; font-size:60px">CMPE Course Recommendation</h2></br>
 <!-- Start of Menu -->
-	<ul class="nav nav-tabs" id="myTab"  style="border-left:thick; margin-left: 30%; font-weight: bold; ">
+	<ul class="nav nav-tabs" id="myTab"  style=" font-weight: bold; ">
 	    <li><g:link controller="Student" action="index">Home</g:link></li>
 	    <li class="active"><g:link controller="Course" action="showAll">All Courses</g:link></li>
+	     <li><g:link controller="Student" action="preRecommender">Course Recommender</g:link></li>
+	     <li><g:link controller="Course" action="graph.gsp">Data & Analytics</g:link></li>
+	     <li><g:link controller="Course" action="e_learn">E-learning</g:link></li>
 	   <g:if test="${session?.student}">
 					<li><g:link controller="Student" action="profile">Hi, ${session?.student.username} </g:link></li>
 					<li><g:link controller="Student" action="logout">Logout</g:link></li>
 					</g:if>
 					<g:else>
 	 				 <li><g:link controller="Student" action="login">Login</g:link></li>
-	 				 <li><g:link controller="Student" action="register">Sign up now!</g:link></li>
+	 				
 				    </g:else>
 	</ul>
 	
-	<!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
-	<script>
-	    $("#menu-close").mouseleave(function(e) {
-		e.preventDefault();
-		$("#sidebar-wrapper").toggleClass("active");
-	    });
-	</script>
-	<script>
-	    $("#menu-toggle").on('hover mouseover', function(e) {
-		e.preventDefault();
-		$("#sidebar-wrapper").toggleClass("active");
-	    });
-	</script>
-
-	<script>
-	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	    ga('create', 'UA-46905375-1', 'pristineestates.in');
-	    ga('send', 'pageview');
-
-	</script> 
 
 </div>
 

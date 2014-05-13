@@ -1,0 +1,37 @@
+<plugin name='mahout-recommender' version='0.5.2' grailsVersion='1.3 &gt; *'>
+  <author>Lim Chee Kin</author>
+  <authorEmail>limcheekin@vobject.com</authorEmail>
+  <title>Mahout Recommender Plugin - A Scalable Recommendation System</title>
+  <description>The Mahout Recommender plugin enabled you to use [Apache Mahout|http://mahout.apache.org/] recommendation algorithms in your Grails project.
+With the plugin, you can find an effective recommender, evaluating precision and recall, and evaluating the performance of the 
+selected recommender without writing single line of code. 
+
+* Project Site: [https://github.com/limcheekin/mahout-recommender] 
+* Documentation: [http://limcheekin.github.com/mahout-recommender]
+* Support: [https://github.com/limcheekin/mahout-recommender/issues] 
+* Discussion Forum: [http://groups.google.com/group/grails-mahout-recommender]
+</description>
+  <documentation>http://grails.org/plugin/mahout-recommender</documentation>
+  <type>MahoutRecommenderGrailsPlugin</type>
+  <resources>
+    <resource>org.grails.mahout.recommender.RecommenderController</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <compile>
+      <dependency group='org.apache.mahout' name='mahout-utils' version='0.5' />
+      <dependency group='org.apache.mahout' name='mahout-core' version='0.5' />
+    </compile>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements>
+    <plugin name='jquery' version='1.4 &gt; *' />
+  </runtimePluginRequirements>
+  <behavior />
+</plugin>

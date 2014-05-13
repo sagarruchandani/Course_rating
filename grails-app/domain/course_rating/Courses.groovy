@@ -7,6 +7,7 @@ class Courses {
 	String Course_id
 	Integer course
 	String Category
+
 	String Sub_type
 	static mapping = {
 		version false
@@ -15,6 +16,14 @@ class Courses {
 		id name: 'id'
 	}
 	
+	
+	
+//	static namedQueries = {
+//		
+//		departmentTitleComp{
+//			like 'Category',"%software%"
+//		}
+//	}
     static constraints = {
     }
 }
